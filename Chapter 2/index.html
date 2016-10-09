@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style rel="stylesheet" type="text/css">
+
+        #bla {
+            background-color: blue;
+            width: 20px;
+            height: 20px;
+            float: left;
+            position: relative;
+            left: 15px;
+        }
+
+        #gul {
+            background-color: yellow;
+            width: 20px;
+            height: 20px;
+            float: left;
+            position: relative;
+            left: 15px;
+        }
+
+        #gronn {
+            background-color: green;
+            width: 20px;
+            height: 20px;
+            float: left;
+            position: relative;
+            left: 15px;
+        }
+
+        #raud {
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            float: left;
+            position: relative;
+            left: 15px;
+        }
+        #valgt {
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            float: left;
+            position: relative;
+            left: 15px;
+        }
+
+        h2 {
+            position: relative;
+            left: 10px;
+
+        }
+
+    </style>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+    attribute vec4 a_Position;
+    attribute float a_PointSize;
+		void main()
+		{
+			gl_Position = a_Position;
+			gl_PointSize= a_PointSize;
+		}
+
+	</script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+	    precision mediump float;
+	    uniform vec4 u_FragColor;
+		void main()
+		{
+			gl_FragColor = u_FragColor;
+		}
+	</script>
+</head>
+<body>
+
+    <canvas id="webgl" width="512" height="512" style="float:left">
+        Please use the browser supporting "canvas"
+    </canvas>
+
+    <h2>Velg farge</h2>
+
+
+        <div onclick="controller.blue()" id="bla"></div>
+        <div onclick="controller.yellow()" id="gul"></div>
+        <div onclick="controller.green()" id="gronn"></div>
+        <div onclick="controller.red()" id="raud"></div>
+
+
+        <br /><br />
+        <h3>Valgt farge</h3>
+        <div id="valgt"></div>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="PointModel.js"></script>
+    <script type="text/javascript" src="Point.js"></script>
+    <script type="text/javascript" src="PointController.js"></script>
+</body>
+</html>
