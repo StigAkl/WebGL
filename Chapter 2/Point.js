@@ -69,7 +69,6 @@ class PointGL {
             let rgb = this.colors[i];
             this.gl.vertexAttrib3f(this.a_Position, xy[0], xy[1], 0.0);
             this.gl.uniform4f(this.u_FragColor, rgb[0], rgb[1], rgb[2], rgb[3]);
-           // this.gl.uniform4f(this.u_FragColor, this.colors[0], this.colors[1], this.colors[2], this.colors[3]);
             this.gl.drawArrays(this.gl.POINTS, 0,1);
         }
     }

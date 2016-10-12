@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Triangles</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+    attribute vec4 a_Position;
+    attribute float a_PointSize;
+		void main()
+		{
+			gl_Position = a_Position;
+			gl_PointSize= 10.0;
+		}
+
+	</script>
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+	    precision mediump float;
+	    uniform vec4 u_FragColor;
+		void main()
+		{
+			gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+		}
+	</script>
+
+</head>
+<body>
+
+<canvas id="webgl" width="512" height="512" style="float:left">
+    Please use the browser supporting "canvas"
+</canvas>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="MultiPoint.js"></script>
+</body>
+</html>
