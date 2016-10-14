@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Triangles</title>
+    <title>Translated Triangle</title>
 
     <script id="vertex-shader" type="x-shader/x-vertex">
 
+    uniform vec4 u_Translation;
     attribute vec4 a_Position;
 		void main()
 		{
-			gl_Position = a_Position;
+			gl_Position = a_Position + u_Translation;
 		}
 
 	</script>
@@ -33,6 +34,6 @@
 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
 <script type="text/javascript" src="../Common/initShaders.js"></script>
 <script type="text/javascript" src="../Common/MV.js"></script>
-<script type="text/javascript" src="MultiPoint.js"></script>
+<script type="text/javascript" src="translatedTriangle.js"></script>
 </body>
 </html>
