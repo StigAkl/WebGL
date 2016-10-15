@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Roter trekant</title>
+    <title><!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Roterende triangel</title>
 
-    <script id="vertex-shader" type="x-shader/x-vertex">
+            <script id="vertex-shader" type="x-shader/x-vertex">
         attribute vec4 a_Position;
         uniform float u_CosB;
         uniform float u_SinB;
@@ -20,7 +24,7 @@
         }
     </script>
 
-    <script id="fragment-shader" type="x-shader/x-vertex">
+            <script id="fragment-shader" type="x-shader/x-vertex">
         precision mediump float;
         uniform vec4 u_FragColor;
         void main()
@@ -28,17 +32,21 @@
             gl_FragColor = vec4(0.4,0.2,0.8,1.0);
         }
     </script>
-</head>
+        </head>
 <body>
 
 <canvas style="float: left" id="webgl" height="600" width="600">
     Please use a browser that supports WebGl
 </canvas>
 
-<button style="float: left; margin-left: 15px; margin-top: 30px;" id="roter" onclick="rotateTriangle(-5)">Roter +5</button>
+<button style="float: left; margin-top: 20px; margin-left: 20px;" onclick="increase()">Øk rotasjonshastighet</button>
+<button style="float: left; margin-top: 20px; margin-left: 20px;" onclick="decrease()">Reduser rotasjonshastighet</button>
+<br /><br /><br />
+<br /><br /><br />
+<p>Rotasjonshastighet: <span id="hastighet"></span></p>
 <script type="text/javascript" src="../Common/initShaders.js"></script>
 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
 <script type="text/javascript" src="../Common/MV.js"></script>
-<script type="text/javascript" src="rotateTriangle.js"></script>
+<script type="text/javascript" src="rotatingTriangle.js"></script>
 </body>
 </html>
