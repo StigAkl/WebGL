@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roter trekant</title>
+
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 a_Position;
+        uniform float u_CosB;
+        uniform float u_SinB;
+        void main()
+        {
+
+            // x' = x cos b - y sin b
+            // y' = x sin b + y cos b
+            gl_Position.x = a_Position.x * u_CosB - a_Position.y * u_SinB;
+            gl_Position.y = a_Position.x * u_SinB + a_Position.y * u_CosB;
+            gl_Position.z = a_Position.z;
+            gl_Position.w = 1.0;
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-vertex">
+        precision mediump float;
+        uniform vec4 u_FragColor;
+        void main()
+        {
+            gl_FragColor = vec4(0.4,0.2,0.8,1.0);
+        }
+    </script>
+</head>
+<body>
+
+<canvas style="float: left" id="webgl" height="600" width="600">
+    Please use a browser that supports WebGl
+</canvas>
+
+<button style="float: left; margin-left: 15px; margin-top: 30px;" id="roter" onclick="rotateTriangle(-5)">Roter +5</button>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="rotateTriangle.js"></script>
+</body>
+</html>
