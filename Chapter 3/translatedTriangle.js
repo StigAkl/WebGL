@@ -3,21 +3,24 @@
  */
 "use strict"
 
+let gl, program;
 function main() {
     let canvas = document.getElementById("webgl");
 
-    let gl = WebGLUtils.setupWebGL(canvas);
+    gl = WebGLUtils.setupWebGL(canvas);
 
-    let program = initShaders(gl, "vertex-shader", "fragment-shader");
+    program = initShaders(gl, "vertex-shader", "fragment-shader");
     gl.useProgram(program);
 
     let vertices = new Float32Array([
-        0.0, 0.5, 0.5, -0.5,  -0.5, -0.5
+        //X,  Y
+        0.0, 0.5,
+        0.5, -0.5,
+        -0.5, -0.5
     ]);
 
     //Lager buffer-objektet
     let bufferId = gl.createBuffer();
-
     //Binder bufferobjektet til target
     gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
     gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
@@ -39,7 +42,7 @@ function main() {
 
 function translateTriangle(gl, program, x, y, z) {
     let u_Translation = gl.getUniformLocation(program, "u_Translation");
-    gl.uniform4f(u_Translation, x, y, z, 2.0);
+    gl.uniform4f(u_Translation, x, y, z, 1.0);
 }
 
 main();
