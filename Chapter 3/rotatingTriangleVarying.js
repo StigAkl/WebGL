@@ -5,6 +5,7 @@
 let angle = 0.0;
 let rotationSpeed = 1.0;
 let program, gl;
+
 function main() {
     let canvas = document.getElementById("webgl");
 
