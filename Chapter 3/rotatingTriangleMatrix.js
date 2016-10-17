@@ -36,9 +36,9 @@ function render() {
     let sinB = Math.sin(radians(angle));
 
     let rotationMatrix = new Float32Array([
-        cosB*5, 0.0, sinB, 0.0,
+        cosB, 0.0, sinB, 0.0,
         0.0,1.0, 0.0, 0.0,
-        -sinB*10, 0.0, cosB/10.5, 0.0,
+        -sinB, 0.0, cosB, 0.0,
         0.0, 0.0, 0.0, 1.0
     ]);
 
