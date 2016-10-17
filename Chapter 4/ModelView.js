@@ -8,9 +8,10 @@ let gl, program;
 let modelViewMatrix;
 
 let translation = 0.0;
-let translateSpeed = 0.1;
+let translateSpeed = 0.05;
 let angle = 0.0;
 let rotationSpeed = 1.0;
+
 function main()  {
     let canvas = document.getElementById("webgl");
 
