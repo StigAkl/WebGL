@@ -60,8 +60,8 @@ function render() {
     if(translation < -0.9)
         translateSpeed *= -1;
 
-    modelViewMatrix = rotate(angle, 0, 1, 0);
-    modelViewMatrix = mult(modelViewMatrix, translate(translation, 0, 0));
+    modelViewMatrix = mult(rotate(angle*2, 0, 1, 0), rotate(angle/2, 1, 0, 0));
+    //modelViewMatrix = mult(modelViewMatrix, translate(translation, 0, translation*10));
 
 
     let modelViewMatrixLoc = gl.getUniformLocation(program, "u_ModelViewMatrix");
