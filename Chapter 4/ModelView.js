@@ -54,24 +54,17 @@ function main()  {
 
 function render() {
     angle += rotationSpeed;
-    translation+=translateSpeed;
-    if(translation > 0.9)
-        translateSpeed *=-1;
-    if(translation < -0.9)
-        translateSpeed *= -1;
 
-    modelViewMatrix = mult(rotate(angle*2, 0, 1, 0), rotate(angle/2, 1, 0, 0));
-    //modelViewMatrix = mult(modelViewMatrix, translate(translation, 0, translation*10));
-
+    modelViewMatrix = rotate(angle, 1,0,0);
 
     let modelViewMatrixLoc = gl.getUniformLocation(program, "u_ModelViewMatrix");
     gl.uniformMatrix4fv(modelViewMatrixLoc, false, flatten(modelViewMatrix));
-    console.log(flatten(modelViewMatrix));
+
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     gl.drawArrays(gl.TRIANGLES, 0, 3);
 
-    requestAnimationFrame(render);
+    requestAnimationFrame(render); 
 
 }
 
